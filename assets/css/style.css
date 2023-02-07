@@ -1,0 +1,13 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* color scheme for the page */
+
+:root {
+    --orange: #C26B52;
+    --yellow: #F0CB69;
+    --green: #617574;
+    --beige: #E2D5CD;
+}
