@@ -1,0 +1,44 @@
+* {
+	box-sizing: border-box;
+}
+
+.search-container {
+	border: solid 1px;
+}
+
+.searchbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.summary {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.image-cover {
+	border: solid 1px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 100%;
+	padding: 100px;
+}
+
+.score {
+	border: solid 1px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 100%;
+	padding: 50px;
+}
+
+footer {
+	border: solid 1px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
