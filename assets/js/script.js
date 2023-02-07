@@ -1,5 +1,4 @@
-axios.request(options).then(function (response) {
-	console.log(response.data);
-}).catch(function (error) {
-	console.error(error);
-});
+fetch('https://mdblist.p.rapidapi.com/?s=jaws', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
