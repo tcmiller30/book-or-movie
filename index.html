@@ -1,65 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book or Movie?</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!--bulma css cdn--> 
-</head> 
-<body>
-    
-</body>
-</html>
-=======
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Books vs Movies</title>
-		<link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
 	<body>
 
-    <!-- seach title container -->
-    <div class="search-container">
-      <div class="searchbar">
-			  <input type="text" />
-			  <button type="search"></button>
-		  </div>
-
-      <div class="summary">
-         <div>Summary</div>
+  <section class="section">
+    <div class="title-container">
+      <div class="columns is-centered">
+        <div class="columns is-half">
+          <h1 class="title">Which was better: The Book or the Movie?</h1>
+        </div>
       </div>
     </div>
-	
+  </section>
+  
+  <section class="section">
+    <div class="subtitle-container">
+      <div class="columns is-centered">
+        <div class="column is-three-quarters">
+          <h2 class="subtitle">This website was designed to compare the ratings of a book to its movie
+          counterpart and vice versa. Begin by entering the name of either a book or a movie into the search bar! </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="search-container"> 
+    <div class="columns is-centered">
+      <div class="column is-three-quarters">
+        <div class="searchbar">Title Search: 
+          <input class="input" type="text" placeholder="e.g. The Lord of the Rings"> 
+          <a class="button is-normal">Search</a>
+		    </div>
+      </div>
+    </div>
+  </section>
+
+      <div class="summary">
+         <div>Summary: </div>
+        <p class="text"></p>
+      </div>
 
     <!-- Image covers for movies&books  -->
 		<main class="image-cover">
+
       <div class="movie-container">
-        <img id="movie">Movie</img>
-      </div>
-			
-      <div class="rating">
-        <div>< / ></div>
+        <figure class="image is-256x256">
+          <img src="https://bulma.io/images/placeholders/256x256.png">
+        </figure>
+        <img id="movie"></img>
       </div>
 			
       <div class="books-container">
-		    <img id="books">book</img>
+        <figure class="image is-256x256">
+          <img src="https://bulma.io/images/placeholders/256x256.png">
+        </figure>		
+        <img id="books"></img>
       </div>
-	
+
 		</main>
 
     <div class="score">
-		  <div>score for book</div>
-		  <div>score for Movie</div>
+		  <div>Book Score:
+        <
+      </div>
+		  <div>Movie Score:</div>
     </div>
     <footer>
-      <div>Recommends</div>
+      <div>The internet recommends the [book/movie] over the [book/movie]</div>
     </footer>
 	</body>
 	<script src="/assets/js/script.js"></script>
 </html>
->>>>>>> 0cc9997e00a55053939bb486f30fa87c515fa15b

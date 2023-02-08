@@ -1,59 +1,80 @@
 * {
-<<<<<<< HEAD
     padding: 0;
     margin: 0;
 }
 
-/* color scheme for the page */
-
 :root {
-    --orange: #C26B52;
-    --yellow: #F0CB69;
-    --green: #617574;
-    --beige: #E2D5CD;
-}
-=======
-	box-sizing: border-box;
+    background-color: tan;
+    --beige: #F1EDCE;
+    --tan: #B99B6B;
+    --green: #698269;
+    --rust: #AA5656;
 }
 
 .search-container {
 	border: solid 1px;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: var(--rust);
+}
+
+.subtitle-container {
+    margin: -65px;
 }
 
 .searchbar {
 	display: flex;
+    padding: 10px;
 	justify-content: center;
 	align-items: center;
+    font-size: 20px;
 }
 
 .summary {
 	display: flex;
-	justify-content: center;
+    margin-top: 10px;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: var(--beige);
+	justify-content:flex-start;
 	align-items: center;
 }
 
 .image-cover {
 	border: solid 1px;
-	display: inline-flex;
+    background-color: var(--green);
+	display: flex;
+	margin-top: 10px;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 10px;
 	align-items: center;
 	justify-content: space-evenly;
-	width: 100%;
-	padding: 100px;
+	width: 97%;
+	padding: 200px;
 }
 
 .score {
 	border: solid 1px;
 	display: inline-flex;
+    background-color: var(--beige);
 	align-items: center;
 	justify-content: space-evenly;
-	width: 100%;
+    margin: 20px;
+    border-radius: 10px;
+	width: 97%;
 	padding: 50px;
 }
 
 footer {
 	border: solid 1px;
+    background-color: var(--rust);
+    padding: 50px;
 	display: flex;
+    margin: 20px;
+    border-radius: 10px;
 	align-items: center;
 	justify-content: center;
 }
->>>>>>> 0cc9997e00a55053939bb486f30fa87c515fa15b
