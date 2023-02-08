@@ -14,7 +14,7 @@ document.querySelector("button").addEventListener("click", function () {
 			var movieScore = data.search[0].score;
 			var movieId = data.search[0].id;
 			console.log(movieId);
-			mScoreEl.textContent = movieScore / 10;
+			mScoreEl.textContent = (movieScore / 10) + " / 10";
 			return(movieId);
 		})
 		.then(moviePosterGetter => {
