@@ -1,9 +1,6 @@
-var bookSearchUrl = 'https://openlibrary.org/search.json?q=the+lord+of+the+rings';
-var bScoreEl = document.getElementById('bScore')
-
-var button = document.querySelector("button");
+var button = document.querySelector(".button");
 var inputEl = document.querySelector(".input-box");
-var bookCoverEl = document.querySelector("#books");
+var bookCoverEl = document.querySelector(".book-cover");
 var summary = document.querySelector(".summary");
 var bScoreEl = document.querySelector(".bScore");
 var mScoreEl = document.querySelector(".mScore");
