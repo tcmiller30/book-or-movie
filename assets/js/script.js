@@ -51,16 +51,16 @@ function movieInfo(input) {
 		.then(moviePosterGetter => {
 		console.log(moviePosterGetter);
 		
-		var moviePoster = "https://mdblist.com/api/?apikey=0zlqcizpjwrma3fudekly1itt&i=" + moviePosterGetter;
-		fetch(moviePoster)
-			.then((response) => response.json())
-			.then((data) => {
+	var moviePoster = "https://mdblist.com/api/?apikey=0zlqcizpjwrma3fudekly1itt&i=" + moviePosterGetter;
+	fetch(moviePoster)
+		.then((response) => response.json())
+		.then((data) => {
 				
-				console.log(data.poster);
-				var mPoster = data.poster;
-				var imageL = document.createElement("img");
-				imageL.setAttribute("src", mPoster);
-				document.querySelector(".movie-container").append(imageL);
-			});
+			console.log(data.poster);
+			var mPoster = data.poster;
+			var imageL = document.createElement("img");
+			imageL.setAttribute("src", mPoster);
+			document.querySelector(".movie-container").append(imageL);
 		});
+	});
 }
