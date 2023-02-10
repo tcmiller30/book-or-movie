@@ -9,8 +9,7 @@ var moviePosterEl = document.querySelector(".movie");
 $(".input-box").on("keyup", function (e) {
 	if (e.keyCode === 13) {
 		var input = $(".input-box").val();
-		movieSummary(input);
-		bookAPIs(input);
+		movieInfo(input);
 	}
 });
 
