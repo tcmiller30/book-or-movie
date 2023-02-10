@@ -1,17 +1,6 @@
 var bookSearchUrl = 'https://openlibrary.org/search.json?q=the+lord+of+the+rings';
 var bookCoverEl = document.getElementById('book-cover')
-
-
-var bookId;
-var bookTitle;
-var coverId;
-var rating;
-
-var bookDataNull = {
-    bookTitle: '',
-    rating: ''
-};
-
+var bScoreEl = document.getElementById('bScore')
 
 function bookAPIs(){
     fetch(bookSearchUrl)
@@ -19,7 +8,7 @@ function bookAPIs(){
         return response.json();
     }).then(function(data){
         console.log(data);
-        bookId = data.docs[0].key;
+        var bookId = data.docs[0].key;
         console.log(bookId);
     // Once the bookId/key has been obtained by the first API, simultaneously init the fetch requests to the works and ratings API's
     var worksRequestUrl = 'https://openlibrary.org' + bookId + '.json';
@@ -34,51 +23,34 @@ function bookAPIs(){
                 return response.json();
             }));
         }).then(function (data) {
-            // Log the data to the console
-            // You would do something with both sets of data here
             // console.log data displays 2 json objects. Data[0] = Works API, Data[1] = Ratings API
             console.log(data);
             console.log(data[0]);
             console.log(data[1]);
-            // create and return object for refence in other logic
+            // define variables usiong 
             
-                bookTitle = data[0].title;
-                coverId = data[0].covers[1];
-                rating = data[1].summary.average * 2;
+                var bookTitle = data[0].title;
+                var coverId = data[0].covers[1];
+                var rating = data[1].summary.average * 2;
                         
             console.log(bookTitle, coverId, rating)
 
-            //calls other 
-            bookDataObj();
-            bookCover();
-           
-           
-           
-           
-           
-            
-
+            //calls displayBookData to pull data values for use
+            displayBookData(bookTitle, coverId, rating);
         })
-        
-
-
     })
 }
 
-function bookCover(){
-    bookCoverEl.src = 'https://covers.openlibrary.org/b/id/' + coverId + '-L.jpg'
-}
 
-function bookDataObj(){
-    var bookDataReturn = {
-        bookTitle : bookTitle,
-        rating: rating
-    };
-    
-    var bookData = Object.assign (bookDataNull, bookDataReturn);
-    console.log(bookData)
-    return bookData;
-    
+function displayBookData(bookTitle, coverId, rating){
+
+    console.log(bookTitle);
+    // changes img tag's src value to the image link provided by Open Library with the coverID
+    bookCoverEl.src = 'https://covers.openlibrary.org/b/id/' + coverId + '-L.jpg'
+
+    //Changes value of book score to the rating provided by the OpenLibrary API
+    bScoreEl.textContent = rating;
+
 }
 bookAPIs();
 
