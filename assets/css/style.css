@@ -29,6 +29,7 @@
 	justify-content: center;
 	align-items: center;
     font-size: 20px;
+	margin: 60px;
 }
 
 .summary {
@@ -40,6 +41,7 @@
     background-color: var(--beige);
 	justify-content:flex-start;
 	align-items: center;
+	padding: 50px;
 }
 
 .image-cover {
