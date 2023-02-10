@@ -1,0 +1,144 @@
+* 
+{
+    box-sizing: border-box;
+    background-color: transparent
+}
+body{
+    background-color: gray;
+}
+
+.header{
+    margin-top: 30px;
+    width: 100%;
+    min-height: 30px;
+    display: inline-block;
+    text-align: center;
+    margin: 0px;
+}
+
+.main-heading{
+    height: 45px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+.header-description{
+    font-size: 20px;
+    text-align: center;
+}
+
+.search-container{
+   
+    margin: 20px;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search{
+    width: 320px;
+    color: black;
+    background-color: white;
+    padding: 12.5px;
+}
+.btn-search{
+    padding: 10px;
+}
+.button{
+    background-color: white;
+    color: black;
+}
+.movieimg {
+    width: 300px;
+    height: 450px;
+}
+
+.bookimg{
+    width: 300px;
+    height: 450px;
+}
+
+.summary{
+    height: 180px;
+    margin: 7.5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    font-size: 26px;
+    padding: 15px;
+    color: black;
+    background-color: blue;
+}
+
+.bookormovietitle{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.pictureandtitle{
+    margin: 7.5px;
+    border-radius: 10px;
+    border: solid 1px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color: black;
+}
+
+.image-cover{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.score{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 15px;
+}
+.containermoviescore{
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 45px;
+    margin-right: 13.5%;
+}
+.containerbookscore{
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 45px;
+    margin-left: 13.5%;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    padding: 35px;
+    font-size: 25px;
+    color: black;
+}
