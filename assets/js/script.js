@@ -13,6 +13,7 @@ $(".input-box").on("keyup", function (e) {
 		bookAPIs(input);
 	}
 });
+
 document.querySelector("button").addEventListener("click", function () {
 	var input = $(".input-box").val();
 	movieInfo(input);
