@@ -2,7 +2,7 @@
 var button = document.querySelector(".button");
 var inputEl = document.querySelector(".input-box");
 var bookCoverEl = document.querySelector(".book-cover");
-.querySelector(".summary");
+var summary = document.querySelector(".summary");
 var bScoreEl = document.querySelector(".bScore");
 var mScoreEl = document.querySelector(".mScore");
 var moviePosterEl = document.querySelector(".movie");
