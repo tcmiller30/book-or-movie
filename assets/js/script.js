@@ -7,7 +7,7 @@ var bScoreEl = document.querySelector(".bScore");
 var mScoreEl = document.querySelector(".mScore");
 var moviePosterEl = document.querySelector(".movie");
 
-
+// Uses input to search through OpenLibrary's APIs
 function bookAPIs(input){
   var bookSearchUrl = 'https://openlibrary.org/search.json?q='+ input;
     fetch(bookSearchUrl)
@@ -30,15 +30,16 @@ function bookAPIs(input){
                 return response.json();
             }));
         }).then(function (data) {
-            // console.log data displays 2 json objects. Data[0] = Works API, Data[1] = Ratings API
-            console.log(data);
+            // console.log 2 json objects. Data[0] = Works API, Data[1] = Ratings API
             console.log(data[0]);
             console.log(data[1]);
             // define variables usiong 
             
                 var bookTitle = data[0].title;
-                var coverId = data[0].covers[1];
-                var rating = data[1].summary.average * 2;
+                var coverId = data[0].covers[0];
+                var rating = Math.round((data[1].summary.average * 2) * 10) / 10;
+				console.log(data[1].summary.average)
+
                         
             console.log(bookTitle, coverId, rating)
 
@@ -56,17 +57,10 @@ function displayBookData(bookTitle, coverId, rating){
     bookCoverEl.src = 'https://covers.openlibrary.org/b/id/' + coverId + '-L.jpg'
 
     //Changes value of book score to the rating provided by the OpenLibrary API
-    bScoreEl.textContent = rating;
+    bScoreEl.textContent = rating + '/10';
 
 }
 
-
-
-
-
-    
-    
-=======
 $(".input-box").on("keyup", function (e) {
 	if (e.keyCode === 13) {
 		var input = $(".input-box").val();
