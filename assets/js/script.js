@@ -135,3 +135,10 @@ function whichIsBetter(rating, movieScore) {
 	}
 	return;
 }
+
+// var inputEl = document.querySelector(".input-box");
+
+
+
+// local storage for previous movie/book searches 
+$('.input-box').val(localStorage).getItem('input-box')
