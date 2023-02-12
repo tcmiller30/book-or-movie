@@ -14,53 +14,87 @@ document.querySelector("button").addEventListener("click", function () {
 
 function movieInfo(input) {
 	// var openBookApi = "https://openlibrary.org/search.json?q=" + input;
-	var movieApiTitle =
-		"https://mdblist.com/api/?apikey=0zlqcizpjwrma3fudekly1itt&s=" + input;
+	var movieApiTitle =	"http://www.omdbapi.com/?S=" + input + "&apikey=c080d1c9";
 
 	fetch(movieApiTitle)
 		.then((response) => response.json())
 		.then((data) => {
-			var movieData = data.search[0].imdbid;
+			var movieData = data;
 			console.log(data);
+			var movieId = data.Search[0].imdbID;
+			
+			
+			
 
-			var imdbID = movieData;
-			var movieApiImdbId =
-				"https://infinite-cliffs-64050.herokuapp.com/https://mdblist.com/api?apikey=0zlqcizpjwrma3fudekly1itt&i=" +
-				imdbID;
+			// var imageL = document.createElement("img");
+			// imageL.setAttribute("src", mPoster);
+			// document.querySelector(".movie-container").append(imageL);
+		
+
+
+			
+			var movieApiImdbId = "http://www.omdbapi.com/?i=" + movieId + "&apikey=c080d1c9";
+	
+
 
 			fetch(movieApiImdbId)
 				.then((response) => response.json())
 				.then((data) => {
-					var movieSummary = data.description;
-					console.log(movieSummary);
-					summary.innerHTML = movieSummary;
+
+					var mPoster = data.Poster;
+					console.log(data);
+					var imageL = document.createElement("img");
+					imageL.setAttribute("src", mPoster);
+					document.querySelector(".movie-container").append(imageL);
+
+
+					
 				});
 		});
 
 
 
-	fetch(movieApiTitle)
-		.then((response) => response.json())
-		.then((data) => {
-			var movieScore = data.search[0].score;
-			var movieId = data.search[0].id;
-			console.log(movieId);
-			mScoreEl.textContent = (movieScore / 10) + " / 10";
-			return(movieId);
-		})
-		.then(moviePosterGetter => {
-		console.log(moviePosterGetter);
+
+
+			
+// 		fetch(movieApiImdbId)
+// 		.then((response) => response.json())
+// 		.then((data) => {
+// 			var mPoster = data.Poster;
+// 			var imageL = document.createElement("img");
+// 			imageL.setAttribute("src", mPoster);
+// 			document.querySelector(".movie-container").append(imageL);
+// 			var movieSummary = data.description;
+// 			console.log(movieSummary);
+// 			summary.innerHTML = movieSummary;
+// 		});
+// });
+
+
+
+
+	// fetch(movieApiTitle)
+ 	// 	.then((response) => response.json())
+ 	// 	.then((data) => {
+ 	// 		var movieScore = data.search[0].score;
+ 	// 		var movieId = data.search[0].id;
+ 	// 		console.log(movieId);
+	// 		mScoreEl.textContent = (movieScore / 10) + " / 10";
+ 	// 		return(movieId);
+ 	// 	})
+ 	// 	.then(moviePosterGetter => {
+ 	// 	console.log(moviePosterGetter);
 		
-	var moviePoster = "https://mdblist.com/api/?apikey=0zlqcizpjwrma3fudekly1itt&i=" + moviePosterGetter;
-	fetch(moviePoster)
-		.then((response) => response.json())
-		.then((data) => {
+ 	// var moviePoster = "https://mdblist.com/api/?apikey=0zlqcizpjwrma3fudekly1itt&i=" + moviePosterGetter;
+ 	// fetch(moviePoster)
+ 	// 	.then((response) => response.json())
+ 	// 	.then((data) => {
 				
-			console.log(data.poster);
-			var mPoster = data.poster;
-			var imageL = document.createElement("img");
-			imageL.setAttribute("src", mPoster);
-			document.querySelector(".movie-container").append(imageL);
-		});
-	});
-}
+ 	// 		console.log(data.Poster);
+ 	// 		var mPoster = data.Poster;
+	// 		var imageL = document.createElement("img");
+	// 		imageL.setAttribute("src", mPoster);
+	// 		document.querySelector(".movie-container").append(imageL);
+	// 	});
+ 	// });
+ }
