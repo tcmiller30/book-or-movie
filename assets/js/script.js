@@ -21,7 +21,7 @@ function movieInfo(input) {
 		.then((response) => response.json())
 		.then((data) => {
 			var movieData = data.search[0].imdbid;
-			console.log(movieData);
+			console.log(data);
 
 			var imdbID = movieData;
 			var movieApiImdbId =
