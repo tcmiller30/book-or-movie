@@ -4,7 +4,7 @@ var bookCover = document.querySelector("#books");
 var summary = document.querySelector(".summary");
 var bScoreEl = document.querySelector(".bScore");
 var mScoreEl = document.querySelector(".mScore");
-var moviePosterEl = document.querySelector(".movie")
+var moviePosterEl = document.querySelector(".mPoster")
 
 
 document.querySelector("button").addEventListener("click", function () {
@@ -22,79 +22,20 @@ function movieInfo(input) {
 			var movieData = data;
 			console.log(data);
 			var movieId = data.Search[0].imdbID;
-			
-			
-			
-
-			// var imageL = document.createElement("img");
-			// imageL.setAttribute("src", mPoster);
-			// document.querySelector(".movie-container").append(imageL);
-		
-
-
-			
 			var movieApiImdbId = "http://www.omdbapi.com/?i=" + movieId + "&apikey=c080d1c9";
-	
-
 
 			fetch(movieApiImdbId)
 				.then((response) => response.json())
 				.then((data) => {
-
 					var mPoster = data.Poster;
 					console.log(data);
-					var imageL = document.createElement("img");
-					imageL.setAttribute("src", mPoster);
-					document.querySelector(".movie-container").append(imageL);
-
-
-					
+					moviePosterEl.src = mPoster;
+					var movieSummary = data.Plot;
+					console.log(movieSummary);
+					summary.innerHTML = movieSummary;
+					var movieScore = data.imdbRating;
+					mScoreEl.textContent = (movieScore + " / 10") ;
 				});
 		});
-
-
-
-
-
-			
-// 		fetch(movieApiImdbId)
-// 		.then((response) => response.json())
-// 		.then((data) => {
-// 			var mPoster = data.Poster;
-// 			var imageL = document.createElement("img");
-// 			imageL.setAttribute("src", mPoster);
-// 			document.querySelector(".movie-container").append(imageL);
-// 			var movieSummary = data.description;
-// 			console.log(movieSummary);
-// 			summary.innerHTML = movieSummary;
-// 		});
-// });
-
-
-
-
-	// fetch(movieApiTitle)
- 	// 	.then((response) => response.json())
- 	// 	.then((data) => {
- 	// 		var movieScore = data.search[0].score;
- 	// 		var movieId = data.search[0].id;
- 	// 		console.log(movieId);
-	// 		mScoreEl.textContent = (movieScore / 10) + " / 10";
- 	// 		return(movieId);
- 	// 	})
- 	// 	.then(moviePosterGetter => {
- 	// 	console.log(moviePosterGetter);
 		
- 	// var moviePoster = "https://mdblist.com/api/?apikey=0zlqcizpjwrma3fudekly1itt&i=" + moviePosterGetter;
- 	// fetch(moviePoster)
- 	// 	.then((response) => response.json())
- 	// 	.then((data) => {
-				
- 	// 		console.log(data.Poster);
- 	// 		var mPoster = data.Poster;
-	// 		var imageL = document.createElement("img");
-	// 		imageL.setAttribute("src", mPoster);
-	// 		document.querySelector(".movie-container").append(imageL);
-	// 	});
- 	// });
- }
+	}
