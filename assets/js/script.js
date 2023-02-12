@@ -37,5 +37,19 @@ function movieInfo(input) {
 					mScoreEl.textContent = (movieScore + " / 10") ;
 				});
 		});
-		
+
+
+		function whichIsBetter(rating, movieScore) {
+			var mScore = movieScore;
+			var bookScore = rating;
+			console.log(mScore);
+			console.log(bookScore);
+			if (bookScore > mScore) {
+				recommendEl.innerHTML = "the internet recommends the book over the movie";
+			} else if (bookScore < mScore) {
+				recommendEl.innerHTML = "the internet recommends the movie over the book";
+			} else if (bookScore == mScore) {
+				recommendEl.innerHTML =
+					"the internet recommends both the movie and the book";
+			}
 	}
