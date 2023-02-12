@@ -59,6 +59,7 @@ function displayBookData(bookTitle, coverId, rating){
 
 }
 
+
 $(".input-box").on("keyup", function (e) {
 	if (e.keyCode === 13) {
 		var input = $(".input-box").val();
