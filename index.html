@@ -5,10 +5,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Books vs Movies</title>
-
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+
 		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
 	<body>
@@ -58,20 +58,29 @@
 
 		<!-- Image covers for movies&books  -->
 		<main class="image-cover">
-			<div class="movie-container">
+			<div class="book-container">
+
+				<figure class="image is-256x256">
+					
+					<img
+						class="bPoster"
+						src="https://bulma.io/images/placeholders/256x256.png" />
+				</figure>
+			</div>
+
+			<div class="ans-container">
+				=
+			</div>
+
+			
+			<div class="books-cover">
+			  <div class="movie-container">
 				<figure class="image is-256x256">
 					<img
 						class="mPoster"
 						src="https://bulma.io/images/placeholders/256x256.png" />
 				</figure>
-			</div>
-
-			<div class="books-cover">
-				<figure class="image is-256x256">
-					<img
-						class="bPoster"
-						src="https://bulma.io/images/placeholders/256x256.png" />
-				</figure>
+			  </div>	
 			</div>
 		</main>
 		<div class="score">
@@ -88,5 +97,6 @@
 		src="https://code.jquery.com/jquery-3.6.3.js"
 		integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
 		crossorigin="anonymous"></script>
+
 	<script src="./assets/js/script.js"></script>
 </html>
