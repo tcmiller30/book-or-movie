@@ -95,7 +95,7 @@ function movieInfo(input) {
 				.then((data) => {
 					var movieSummary = data.description;
 					console.log(movieSummary);
-					summary.innerHTML = movieSummary;
+					summary.innerHTML = "Summary: " + movieSummary;
 				});
 		});
 
