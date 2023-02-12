@@ -1,10 +1,12 @@
 var button = document.querySelector("button");
 var inputEl = document.querySelector(".input-box");
-var bookCoverEl = document.querySelector(".book-cover");
+var bookCover = document.querySelector("#books");
 var summary = document.querySelector(".summary");
 var bScoreEl = document.querySelector(".bScore");
 var mScoreEl = document.querySelector(".mScore");
-var moviePosterEl = document.querySelector(".movie-poster")
+var moviePosterEl = document.querySelector(".mPoster")
+
+
 
 // Uses input to search through OpenLibrary's APIs
 function bookAPIs(input){
@@ -81,6 +83,13 @@ function bookAPIs(input){
 	  movieInfo(input);
 	bookAPIs(input);
   });
+
+
+document.querySelector("button").addEventListener("click", function () {
+	var input = $(".input-box").val();
+	movieInfo(input);
+});
+
 
 function movieInfo(input) {
 	// var openBookApi = "https://openlibrary.org/search.json?q=" + input;
