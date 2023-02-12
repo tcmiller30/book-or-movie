@@ -15,38 +15,46 @@ function bookAPIs(input){
         return response.json();
     }).then(function(data){
         console.log(data);
-        var bookId = data.docs[0].key;
-        console.log(bookId);
-    // Once the bookId/key has been obtained by the first API, simultaneously init the fetch requests to the works and ratings API's
-    var worksRequestUrl = 'https://openlibrary.org' + bookId + '.json';
-    var ratingsRequestUrl = 'https://openlibrary.org' + bookId + '/ratings.json';
-    
-        return Promise.all([
-            fetch(worksRequestUrl),
-            fetch(ratingsRequestUrl)
-        ]).then(function (responses) {
-            // Get a JSON object from each of the responses
-            return Promise.all(responses.map(function (response) {
-                return response.json();
-            }));
-        }).then(function (data) {
-            // console.log 2 json objects. Data[0] = Works API, Data[1] = Ratings API
-            console.log(data[0]);
-            console.log(data[1]);
-            // define variables usiong 
-            
-                var bookTitle = data[0].title;
-                var coverId = data[0].covers[0];
-                var rating = Math.round((data[1].summary.average * 2) * 10) / 10;
-				console.log(data[1].summary.average)
+		// if search pulls no results from OpenLibrary API, exit logic
+		if(data.num_found === 0){
+			console.log('No Books Found. Please try again');
+			
+			return;
+		}
+		else{
+			var bookId = data.docs[0].key;
+			console.log(bookId);
+			// Once the bookId/key has been obtained by the first API, simultaneously init the fetch requests to the works and ratings API's
+			var worksRequestUrl = 'https://openlibrary.org' + bookId + '.json';
+			var ratingsRequestUrl = 'https://openlibrary.org' + bookId + '/ratings.json';
+		
+			return Promise.all([
+				fetch(worksRequestUrl),
+				fetch(ratingsRequestUrl)
+			]).then(function (responses) {
+				// Get a JSON object from each of the responses
+				return Promise.all(responses.map(function (response) {
+					return response.json();
+				}));
+			}).then(function (data) {
+				// console.log 2 json objects. Data[0] = Works API, Data[1] = Ratings API
+				console.log(data[0]);
+				console.log(data[1]);
+				// define variables usiong 
+				
+					var bookTitle = data[0].title;
+					var coverId = data[0].covers[0];
+					var rating = Math.round((data[1].summary.average * 2) * 10) / 10;
+					console.log(data[1].summary.average)
 
-                        
-            console.log(bookTitle, coverId, rating)
+							
+				console.log(bookTitle, coverId, rating)
 
-            //calls displayBookData to pull data values for use
-            displayBookData(bookTitle, coverId, rating);
-        })
-    })
+				//calls displayBookData to pull data values for use
+				displayBookData(bookTitle, coverId, rating);
+				})
+		}
+	})
 }
 
 
