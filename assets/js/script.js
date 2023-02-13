@@ -91,7 +91,7 @@ function movieInfo(input) {
 				.then((response) => response.json())
 				.then((data) => {
 					var mPoster = data.Poster;
-					console.log(data);
+
 					moviePosterEl.src = mPoster;
 					var movieSummary = data.Plot;
 
@@ -111,7 +111,6 @@ function displayMovieData(movieSummary, moviePoster, movieScore) {
 
 function whichIsBetter(input) {
 	Promise.all([movieInfo(input), bookAPIs(input)]).then((data) => {
-		console.log(data);
 		movieScore = data[0];
 		bookScore = data[1];
 		if (bookScore > movieScore) {
@@ -126,14 +125,5 @@ function whichIsBetter(input) {
 			ansContainer.innerHTML = "=";
 		}
 		return;
-	});
-}
-function main(bookInput, movieInput) {
-	var book = bookAPIs(bookInput);
-	var movie = movieInfo(movieInput);
-
-	Promise.all([book, movie]).then((results) => {
-		// code to get ratings from both here
-		console.log(results);
 	});
 }
