@@ -75,7 +75,6 @@ document.querySelector("button").addEventListener("click", function () {
 });
 
 function movieInfo(input) {
-	// var openBookApi = "https://openlibrary.org/search.json?q=" + input;
 	var movieApiTitle = "http://www.omdbapi.com/?S=" + input + "&apikey=c080d1c9";
 
 	return fetch(movieApiTitle)
