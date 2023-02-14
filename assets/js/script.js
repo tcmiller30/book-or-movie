@@ -1,12 +1,21 @@
-var button = document.querySelector(".button");
+var buttonEl = document.querySelector(".button");
 var inputEl = document.querySelector(".input-box");
 var bookCoverEl = document.querySelector(".book-cover");
+var symbolEl = document.querySelector("#symbol");
 var summary = document.querySelector(".summary");
 var bScoreEl = document.querySelector(".bScore");
 var mScoreEl = document.querySelector(".mScore");
 var moviePosterEl = document.querySelector(".mPoster");
 var bookPosterEl = document.querySelector(".bPoster");
 var recommendEl = document.querySelector(".recommends");
+
+// button for light/dark
+var btnTheme = document.querySelector('.btn-theme');
+
+btnTheme.addEventListener("click", function(){
+	document.querySelector('body').classList.toggle('dark')
+	document.querySelector('footer').classList.toggle('dark')
+})
 
 function bookAPIs(input) {
 	var bookSearchUrl = "https://openlibrary.org/search.json?q=" + input;
@@ -48,7 +57,7 @@ function bookAPIs(input) {
 
 					//calls displayBookData to pull data values for use
 					displayBookData(bookTitle, coverId, rating);
-					whichIsBetter(rating);
+					 whichIsBetter(rating);
 				});
 		});
 }
@@ -71,7 +80,7 @@ $(".input-box").on("keyup", function (e) {
 	}
 });
 
-document.querySelector("button").addEventListener("click", function () {
+document.querySelector(".buttonEl").addEventListener("click", function () {
 	var input = $(".input-box").val();
 	movieInfo(input);
 	bookAPIs(input);
@@ -98,12 +107,13 @@ function movieInfo(input) {
 		.then((data) => {
 			console.log(data);
 
-			var movieSummary = data.result[0].overview;
-			var moviePoster = data.result[0].posterURLs.original;
-			var movieScore = data.result[0].imdbRating / 10;
+			var movieSummary = data?.result[0]?.overview  || "No content found, please try again.";
+			var moviePoster = data?.result[0]?.posterURLs.original;
+			var movieScore = data?.result[0]?.imdbRating / 10;
+			var bookScore = data?.result[0]?.tmdbRating / 10;
 
 			displayMovieData(movieSummary, moviePoster, movieScore);
-			whichIsBetter(movieScore);
+			whichIsBetter(bookScore,movieScore);
 		});
 }
 //display movie data
@@ -119,8 +129,15 @@ function whichIsBetter(rating, movieScore) {
 	console.log(mScore);
 	console.log(bookScore);
 	if (bookScore > mScore) {
+		symbolEl.className = "";
+		symbolEl.classList.add("fas");
+		symbolEl.classList.add("fa-greater-than");
 		recommendEl.innerHTML = "the internet recommends the book over the movie";
 	} else if (bookScore < mScore) {
+		console.log("less than the===");		
+		symbolEl.className = "";
+		symbolEl.classList.add("fas");
+		symbolEl.classList.add("fa-less-than");
 		recommendEl.innerHTML = "the internet recommends the movie over the book";
 	} else if (bookScore == mScore) {
 		recommendEl.innerHTML =
