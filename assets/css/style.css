@@ -54,13 +54,18 @@
 	border-radius: 10px;
 	align-items: center;
 	justify-content: space-evenly;
-	width: 97%;
+	width: 98%;
 	padding: 200px;
 }
-.book-cover{
-    
-}
 
+.bPoster {
+	max-height: 445px;
+	max-width: 300px;
+}
+.mPoster {
+	max-height: 445px;
+	max-width: 300px;
+}
 .score {
 	border: solid 1px;
 	display: inline-flex;
@@ -69,8 +74,11 @@
 	justify-content: space-evenly;
 	margin: 20px;
 	border-radius: 10px;
-	width: 97%;
+	width: 98%;
 	padding: 50px;
+}
+.bScore {
+	margin-right: 250px;
 }
 
 footer {
