@@ -29,6 +29,10 @@
 	background-color: var(--rust);
 }
 
+.poster-bg {
+	background-color: var(--beige);
+	margin:10px;
+}
 
 .searchbar {
 	display: flex;
@@ -38,6 +42,9 @@
 	font-size: 20px;
 	margin: 30px;
 	white-space:nowrap;
+	background-color: var(--beige);
+	border-radius: 5px;
+	border: solid 1px;
 }
 
 .summary {
@@ -65,8 +72,8 @@
 	width: 97%;
 	padding: 200px;
 }
-.book-cover{
-    
+.title-search {
+	margin-right: 20px;
 }
 
 .score {
