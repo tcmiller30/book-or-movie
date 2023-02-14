@@ -36,7 +36,6 @@ function bookAPIs(input) {
 					// console.log data displays 2 json objects. Data[0] = Works API, Data[1] = Ratings API
 
 					// define variables usiong
-
 					var bookTitle = data[0].title;
 					var coverId = data[0].covers[0];
 					var rating = Math.round((data[1].summary.average * 2) * 10) / 10;
