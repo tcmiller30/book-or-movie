@@ -52,6 +52,5 @@ function movieInfo(input) {
 				recommendEl.innerHTML =
 					"the internet recommends both the movie and the book";
 			}
-	}
-
+	}	
 }
