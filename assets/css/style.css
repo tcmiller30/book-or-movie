@@ -34,7 +34,7 @@ button {
 }
 
 .btn-theme {
-	position: absolute;
+	position: fixed;
 	right: 15px;
 	top: 15px;
 	padding: 10px;
