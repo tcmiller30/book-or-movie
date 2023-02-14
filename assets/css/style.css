@@ -108,6 +108,10 @@ body.dark {
 	padding: 200px;
 }
 
+.dark .searchbar {
+	background-color: var(--grey);
+}
+
 .dark .image-cover{
 	border: solid 1px;
 	background-color: var(--darkblue);
