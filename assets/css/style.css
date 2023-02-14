@@ -21,6 +21,9 @@ html.dark {
 body.dark {
 	background-color: var(--black);
 }
+button {
+	margin: 5px;
+}
 
 .dark .title {
 	color: var(--white);
@@ -96,6 +99,7 @@ body.dark {
 	border-radius: 10px;
 	background-color: var(--beige);
 	text-align: center;
+	border: 1px solid var(--black);
 }
 
 .dark .summary {
@@ -109,7 +113,6 @@ body.dark {
 	padding: 15px;
 	margin: 10px;
 	border-radius: 10px;
-	width: 97%;
 }
 
 .dark .image-cover {
