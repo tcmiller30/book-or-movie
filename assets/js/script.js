@@ -9,6 +9,14 @@ var bookPosterEl = document.querySelector(".bPoster");
 var recommendEl = document.querySelector(".recommends");
 var ansContainer = document.querySelector(".ans-container");
 
+// button for light/dark
+var btnTheme = document.querySelector('.btn-theme');
+
+btnTheme.addEventListener("click", function(){
+	document.querySelector('body').classList.toggle('dark')
+	document.querySelector('footer').classList.toggle('dark')
+})
+
 function bookAPIs(input) {
 	var bookSearchUrl = "https://openlibrary.org/search.json?q=" + input;
 	return fetch(bookSearchUrl)
@@ -36,11 +44,10 @@ function bookAPIs(input) {
 					// console.log data displays 2 json objects. Data[0] = Works API, Data[1] = Ratings API
 
 					// define variables usiong
-
 					var bookTitle = data[0].title;
-					var coverId = data[0].covers[1];
-					var rating = data[1].summary.average * 2;
-					rating = parseFloat(rating.toFixed(1));
+					var coverId = data[0].covers[0];
+					var rating = Math.round((data[1].summary.average * 2) * 10) / 10;
+					
 					//calls displayBookData to pull data values for use
 					displayBookData(coverId, rating);
 					return rating;
@@ -53,7 +60,7 @@ function displayBookData(coverId, rating) {
 	var bookCover = "https://covers.openlibrary.org/b/id/" + coverId + "-L.jpg";
 	bookPosterEl.src = bookCover;
 
-	bScoreEl.textContent = "Book Score: " + rating;
+	bScoreEl.textContent = "Book Score: " + rating + " / 10";
 	//Changes value of book score to the rating provided by the OpenLibrary API
 }
 
@@ -95,7 +102,7 @@ function movieInfo(input) {
 
 					moviePosterEl.src = mPoster;
 					summary.innerHTML = movieSummary;
-					mScoreEl.textContent = movieScore + " / 10";
+					mScoreEl.textContent = "Movie Score: " + movieScore + " / 10";
 					return movieScore;
 				});
 		});
@@ -106,14 +113,14 @@ function whichIsBetter(input) {
 		movieScore = data[0];
 		bookScore = data[1];
 		if (bookScore > movieScore) {
-			recommendEl.innerHTML = "the internet recommends the book over the movie";
+			recommendEl.innerHTML = "The Internet recommends the book over the movie.";
 			ansContainer.innerHTML = ">";
 		} else if (bookScore < movieScore) {
-			recommendEl.innerHTML = "the internet recommends the movie over the book";
+			recommendEl.innerHTML = "The Internet recommends the movie over the book.";
 			ansContainer.innerHTML = "<";
 		} else if (bookScore == movieScore) {
 			recommendEl.innerHTML =
-				"the internet recommends both the movie and the book";
+				"The Internet equally recommends the book and the movie.";
 			ansContainer.innerHTML = "=";
 		}
 		return;
