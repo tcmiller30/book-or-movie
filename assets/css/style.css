@@ -9,7 +9,6 @@
 	--tan: #b99b6b;
 	--green: #698269;
 	--rust: #aa5656;
-<<<<<<< HEAD
 	--purple: #4a308d;
 	--grey: #aaaaaa;
 	--white: #ffffff;
@@ -34,8 +33,6 @@ body.dark {
 	right: 15px;
 	top: 15px;
 	padding: 10px;
-=======
->>>>>>> parent of be7d3e5 (added light/dark feature)
 }
 
 .search-container {
@@ -46,14 +43,11 @@ body.dark {
 	background-color: var(--rust);
 }
 
-<<<<<<< HEAD
 .dark .search-container {
 	background-color: var(--purple);
 	color: var(--white);
 }
 
-=======
->>>>>>> parent of be7d3e5 (added light/dark feature)
 .subtitle-container {
 	margin: -65px;
 }
@@ -66,7 +60,9 @@ body.dark {
 	font-size: 20px;
 	margin: 60px;
 }
-
+.dark .summary {
+	background-color: var(--grey);
+}
 .summary {
 	display: flex;
 	margin-top: 10px;
@@ -82,6 +78,17 @@ body.dark {
 .image-cover {
 	border: solid 1px;
 	background-color: var(--green);
+	border-radius: 10px;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 97%;
+	padding: 200px;
+}
+
+.dark .image-cover {
+	border: solid 1px;
+	background-color: var(--darkblue);
+	color: var(--white);
 	display: flex;
 	margin-top: 10px;
 	padding: 25px;
@@ -89,10 +96,18 @@ body.dark {
 	border-radius: 10px;
 	align-items: center;
 	justify-content: space-evenly;
-	width: 98%;
+	width: 97%;
 	padding: 200px;
 }
-<<<<<<< HEAD
+
+.book-cover {
+}
+
+.image-cover .columns {
+	display: flex;
+	align-items: center;
+	font-size: 35px;
+}
 
 .bPoster {
 	max-height: 445px;
@@ -102,12 +117,6 @@ body.dark {
 	max-height: 445px;
 	max-width: 300px;
 }
-=======
-.book-cover{
-    
-}
-
->>>>>>> parent of be7d3e5 (added light/dark feature)
 .score {
 	border: solid 1px;
 	display: inline-flex;
@@ -123,14 +132,11 @@ body.dark {
 	margin-right: 250px;
 }
 
-<<<<<<< HEAD
 .dark .score {
 	background-color: var(--grey);
 	color: var(--black);
 }
 
-=======
->>>>>>> parent of be7d3e5 (added light/dark feature)
 footer {
 	border: solid 1px;
 	background-color: var(--rust);
@@ -140,8 +146,15 @@ footer {
 	border-radius: 10px;
 	align-items: center;
 	justify-content: center;
-<<<<<<< HEAD
 }
-=======
+footer.dark {
+	border: solid 1px;
+	background-color: var(--purple);
+	color: var(--white);
+	padding: 50px;
+	display: flex;
+	margin: 20px;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: center;
 }
->>>>>>> parent of be7d3e5 (added light/dark feature)
