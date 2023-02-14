@@ -9,6 +9,14 @@ var bookPosterEl = document.querySelector(".bPoster");
 var recommendEl = document.querySelector(".recommends");
 var ansContainer = document.querySelector(".ans-container");
 
+// button for light/dark
+var btnTheme = document.querySelector('.btn-theme');
+
+btnTheme.addEventListener("click", function(){
+	document.querySelector('body').classList.toggle('dark')
+	document.querySelector('footer').classList.toggle('dark')
+})
+
 function bookAPIs(input) {
 	var bookSearchUrl = "https://openlibrary.org/search.json?q=" + input;
 	return fetch(bookSearchUrl)
