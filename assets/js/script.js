@@ -8,14 +8,16 @@ var moviePosterEl = document.querySelector(".mPoster");
 var bookPosterEl = document.querySelector(".bPoster");
 var recommendEl = document.querySelector(".recommends");
 var ansContainer = document.querySelector(".ans-container");
+var bPoster = document.querySelector(".bPoster");
+var mPoster = document.querySelector(".mPoster");
 
 // button for light/dark
-var btnTheme = document.querySelector('.btn-theme');
+var btnTheme = document.querySelector(".btn-theme");
 
-btnTheme.addEventListener("click", function(){
-	document.querySelector('body').classList.toggle('dark')
-	document.querySelector('footer').classList.toggle('dark')
-})
+btnTheme.addEventListener("click", function () {
+	document.querySelector("body").classList.toggle("dark");
+	document.querySelector("footer").classList.toggle("dark");
+});
 
 function bookAPIs(input) {
 	var bookSearchUrl = "https://openlibrary.org/search.json?q=" + input;
@@ -24,6 +26,7 @@ function bookAPIs(input) {
 			return response.json();
 		})
 		.then(function (data) {
+			console.log(data);
 			var bookId = data.docs[0].key;
 
 			// Once the bookId/key has been obtained by the first API, simultaneously init the fetch requests to the works and ratings API's
@@ -46,8 +49,8 @@ function bookAPIs(input) {
 					// define variables usiong
 					var bookTitle = data[0].title;
 					var coverId = data[0].covers[0];
-					var rating = Math.round((data[1].summary.average * 2) * 10) / 10;
-					
+					var rating = Math.round(data[1].summary.average * 2 * 10) / 10;
+
 					//calls displayBookData to pull data values for use
 					displayBookData(coverId, rating);
 					return rating;
@@ -64,22 +67,36 @@ function displayBookData(coverId, rating) {
 	//Changes value of book score to the rating provided by the OpenLibrary API
 }
 
+function reset() {
+	bPoster.src = "https://bulma.io/images/placeholders/256x256.png";
+	mPoster.src = "https://bulma.io/images/placeholders/256x256.png";
+	bScoreEl.innerHTML = "Book Score:";
+	mScoreEl.innerHTML = "Movie Score:";
+	summary.innerHTML = "Summary:";
+	recommendEl.innerHTML =
+		"The internet recommends the [book/movie] over the [book/movie]";
+}
+
 //on keyup for enter key
 $(".input-box").on("keyup", function (e) {
 	if (e.keyCode === 13) {
 		var input = $(".input-box").val();
+		reset();
 		movieInfo(input);
 		bookAPIs(input);
 		whichIsBetter(input);
+		storeInput(input);
 	}
 });
 
 //eventlistener for search button
 document.querySelector("button").addEventListener("click", function () {
 	var input = $(".input-box").val();
+	reset();
 	movieInfo(input);
 	bookAPIs(input);
 	whichIsBetter(input);
+	storeInput(input);
 });
 
 //fetch movie api
@@ -99,6 +116,7 @@ function movieInfo(input) {
 					var mPoster = data.Poster;
 					var movieScore = data.imdbRating;
 					var movieSummary = data.Plot;
+					console.log(data);
 
 					moviePosterEl.src = mPoster;
 					summary.innerHTML = movieSummary;
@@ -113,10 +131,12 @@ function whichIsBetter(input) {
 		movieScore = data[0];
 		bookScore = data[1];
 		if (bookScore > movieScore) {
-			recommendEl.innerHTML = "The Internet recommends the book over the movie.";
+			recommendEl.innerHTML =
+				"The Internet recommends the book over the movie.";
 			ansContainer.innerHTML = ">";
 		} else if (bookScore < movieScore) {
-			recommendEl.innerHTML = "The Internet recommends the movie over the book.";
+			recommendEl.innerHTML =
+				"The Internet recommends the movie over the book.";
 			ansContainer.innerHTML = "<";
 		} else if (bookScore == movieScore) {
 			recommendEl.innerHTML =
@@ -126,3 +146,30 @@ function whichIsBetter(input) {
 		return;
 	});
 }
+
+function storeInput(input) {
+	var searchHistory = getLocalStorage();
+	if (searchHistory.includes(input)) {
+		return;
+	} else {
+		searchHistory.push(input);
+		localStorage.setItem("titles", JSON.stringify(searchHistory));
+	}
+}
+
+function getLocalStorage() {
+	var searchHistory = localStorage.getItem("titles");
+	if (searchHistory !== null) {
+		newList = JSON.parse(searchHistory);
+		return newList;
+	} else {
+		newList = [];
+	}
+	return newList;
+}
+function displaySearchHistory() {
+	var searchHistory = localStorage.getItem("titles");
+	var titles = JSON.parse(searchHistory);
+	console.log(titles);
+}
+displaySearchHistory();

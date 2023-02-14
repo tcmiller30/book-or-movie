@@ -28,7 +28,7 @@ body.dark {
 	color: var(--white);
 }
 
-.btn-theme{
+.btn-theme {
 	position: absolute;
 	right: 15px;
 	top: 15px;
@@ -54,7 +54,6 @@ body.dark {
 }
 
 .dark .search-container {
-
 	background-color: var(--purple);
 	color: var(--white);
 }
@@ -77,8 +76,11 @@ body.dark {
 	border: solid 1px;
 }
 
+.dark .summary {
+	background-color: var(--grey);
+}
+
 .summary {
-	border: 1px solid black;
 	display: flex;
 	margin-top: 10px;
 	padding: 25px;
@@ -112,7 +114,7 @@ body.dark {
 	background-color: var(--grey);
 }
 
-.dark .image-cover{
+.dark .image-cover {
 	border: solid 1px;
 	background-color: var(--darkblue);
 	color: var(--white);
@@ -131,12 +133,20 @@ body.dark {
 	margin-right: 20px;
 }
 
-.image-cover .columns{
+.image-cover .columns {
 	display: flex;
 	align-items: center;
 	font-size: 35px;
 }
 
+.bPoster {
+	max-height: 445px;
+	max-width: 300px;
+}
+.mPoster {
+	max-height: 445px;
+	max-width: 300px;
+}
 .score {
 	border: solid 1px;
 	display: inline-flex;
@@ -145,13 +155,16 @@ body.dark {
 	justify-content: space-evenly;
 	margin: 20px;
 	border-radius: 10px;
-	width: 97%;
+	width: 98%;
 	padding: 50px;
+}
+.bScore {
+	margin-right: 250px;
 }
 
 .dark .score {
 	background-color: var(--grey);
-	color: var(--black)
+	color: var(--black);
 }
 
 footer {
@@ -164,7 +177,6 @@ footer {
 	align-items: center;
 	justify-content: center;
 }
-
 footer.dark {
 	border: solid 1px;
 	background-color: var(--purple);
