@@ -8,10 +8,15 @@
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
-
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+			crossorigin="anonymous" />
 		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
 	<body>
+		<button class="btn-theme">Dark/Light</button>
 		<section class="section">
 			<div class="title-container">
 				<div class="columns is-centered">
@@ -23,7 +28,7 @@
 		</section>
 
 		<section class="section">
-			<div class="subtitle-container">
+			<div class="subtitle-container has-text-centered">
 				<div class="columns is-centered">
 					<div class="column is-three-quarters">
 						<h2 class="subtitle">
@@ -46,16 +51,36 @@
 							type="text"
 							placeholder="e.g. The Lord of the Rings" />
 						<button class="button is-normal">Search</button>
+            <div class = "dropdown is-right">
+              <div class = "dropdown-trigger">
+                 <button class = "button" aria-haspopup = "true" aria-controls = "dropdown-menu4">
+                    <span>Previous Searches</span>
+                    <span class = "icon is-small">
+                       <i class = "fas fa-angle-down" aria-hidden = "true"></i>
+                    </span>
+                 </button>
+              </div>
+
+              <div class = "dropdown-menu" id = "dropdown-menu" role = "menu">
+                 <div class= "dropdown-content">
+                    <a id = "dropdown-item"></a>
+                    <a id = "dropdown-item"></a>
+                    <a id = "dropdown-item"></a>
+                    <a id = "dropdown-item"></a>
+                    <a id = "dropdown-item"></a>
+                 </div>
+              </div>
+					</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<div class="summary">
-			<div>this is a pull test</div>
+			<div>Summary:</div>
 			<p class="text"></p>
 		</div>
-		
+
 		<!-- Image covers for movies&books  -->
 		<main class="image-cover">
 			<div class="book-container">
@@ -84,7 +109,7 @@
 		</div>
 		<footer>
 			<div class="recommends">
-				The internet recommends the [book/movie] over the [book/movie]
+				The Internet recommends the [book/movie] over the [book/movie].
 			</div>
 		</footer>
 		<script
