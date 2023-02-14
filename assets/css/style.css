@@ -11,6 +11,16 @@
 	--rust: #aa5656;
 }
 
+.title{
+	font-size: 64px;
+	text-align: center;
+}
+
+.subtitle{
+	text-align: center;
+	margin-top: 25px;
+}
+
 .search-container {
 	border: solid 1px;
 	padding: 25px;
@@ -19,17 +29,15 @@
 	background-color: var(--rust);
 }
 
-.subtitle-container {
-	margin: -65px;
-}
 
 .searchbar {
 	display: flex;
-	padding: 10px;
+	padding: 20px;
 	justify-content: center;
 	align-items: center;
 	font-size: 20px;
-	margin: 60px;
+	margin: 30px;
+	white-space:nowrap;
 }
 
 .summary {
