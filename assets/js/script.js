@@ -173,3 +173,26 @@ function displaySearchHistory() {
 	console.log(titles);
 }
 displaySearchHistory();
+
+// drop down menu functionality for user's previous searches
+document.addEventListener('DOMContentLoaded', function () {
+	var dropdown = document.querySelector('.dropdown');
+	dropdown.addEventListener('click', function(event) {
+	   event.stopPropagation();
+	   dropdown.classList.toggle('is-active');
+	   /* document.querySelector("dropdown-item").innerHTML = `<a href= "${titles}" </a>` */
+	});
+ }); 
+
+ // retrieve data from local storage 
+ var userInputArray = JSON.parse(localStorage.getItem('titles'));
+
+ var dropdown = document.getElementById('dropdown-item');
+
+ // loop through array of objects and display in previous searches 
+ userInputArray.forEach((item) => {
+	var previousSearches = document.createElement('div');
+	previousSearches.value = item.id;
+	previousSearches.innerHTML = item.name;
+	dropdown.appendChild(previousSearches);
+ });
