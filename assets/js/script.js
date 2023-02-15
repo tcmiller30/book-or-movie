@@ -130,18 +130,25 @@ function whichIsBetter(input) {
 	Promise.all([movieInfo(input), bookAPIs(input)]).then((data) => {
 		movieScore = data[0];
 		bookScore = data[1];
-		if (bookScore > movieScore) {
-			recommendEl.innerHTML =
-				"The Internet recommends the book over the movie.";
-			ansContainer.innerHTML = ">";
-		} else if (bookScore < movieScore) {
-			recommendEl.innerHTML =
-				"The Internet recommends the movie over the book.";
-			ansContainer.innerHTML = "<";
-		} else if (bookScore == movieScore) {
-			recommendEl.innerHTML =
-				"The Internet equally recommends the book and the movie.";
-			ansContainer.innerHTML = "=";
+		if(!data[0]){
+
+		}else if(!data[1]){
+
+		}else{
+			// compares book and movie scores
+			if (bookScore > movieScore) {
+				recommendEl.innerHTML =
+					"The Internet recommends the book over the movie.";
+				ansContainer.innerHTML = ">";
+			} else if (bookScore < movieScore) {
+				recommendEl.innerHTML =
+					"The Internet recommends the movie over the book.";
+				ansContainer.innerHTML = "<";
+			} else if (bookScore == movieScore) {
+				recommendEl.innerHTML =
+					"The Internet equally recommends the book and the movie.";
+				ansContainer.innerHTML = "=";
+			}
 		}
 		return;
 	});
