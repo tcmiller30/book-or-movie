@@ -90,7 +90,7 @@ $(".input-box").on("keyup", function (e) {
 });
 
 //eventlistener for search button
-document.querySelector("button").addEventListener("click", function () {
+document.querySelector(".button").addEventListener("click", function () {
 	var input = $(".input-box").val();
 	reset();
 	movieInfo(input);
