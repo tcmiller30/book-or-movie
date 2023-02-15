@@ -15,37 +15,25 @@
 			crossorigin="anonymous" />
 		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
+
 	<body>
 		<button class="btn-theme">Dark/Light</button>
-		<section class="section">
-			<div class="title-container">
-				<div class="columns is-centered">
-					<div class="columns is-half">
-						<h1 class="title">Which was better: The Book or the Movie?</h1>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<div class="subtitle-container has-text-centered">
-				<div class="columns is-centered">
-					<div class="column is-three-quarters">
-						<h2 class="subtitle">
+		<header class="section columns is-centered">
+			<div class="column is-three-quarters">
+				<h1 class="title is-2">Which Was Better: The Book or the Movie?</h1>
+					<h2 class="subtitle is-4">
 							This website was designed to compare the ratings of a book to its
 							movie counterpart and vice versa. Begin by entering the name of
 							either a book or a movie into the search bar!
-						</h2>
-					</div>
-				</div>
+					</h2>
 			</div>
-		</section>
+		</header>
 
 		<section class="search-container">
 			<div class="columns is-centered">
-				<div class="column is-three-quarters">
+				<div class="column is-two-thirds">
 					<div class="searchbar">
-						Title Search:
+						<p class="title-search">Title Search:</p>
 						<input
 							class="input input-box"
 							type="text"
@@ -81,33 +69,44 @@
 			<p class="text"></p>
 		</div>
 
-		<main class="image-cover">
-			<div class="book-container">
-				<figure class="image is-256x256">
-					<img
-						class="bPoster"
-						src="https://bulma.io/images/placeholders/256x256.png" />
+		<!-- Image covers for movies&books  -->
+		<main class="image-cover columns is-mobile is-centered">
+				<figure class="poster-bg column is-2">
+					<div class="image is-3by5">
+						<img class="bPoster" src="" >
+					</div>
+						<div class="columns">
+							<div class="column score">
+								<p class="bScore is size-6-mobile">Book Score:</p>
+							</div>
+						</div>
 				</figure>
+
+			<div class="ans-container 
+				column is-1 
+				is-offset-1
+				is-size-5-mobile
+				has-text-centered
+				is-flex
+				is-justify-content-center
+				is-align-items-center">
+					=
 			</div>
 
-			<div class="ans-container">=</div>
-
-			<div class="books-cover">
-				<div class="movie-container">
-					<figure class="image is-256x256">
-						<img
-							class="mPoster"
-							src="https://bulma.io/images/placeholders/256x256.png" />
-					</figure>
-				</div>
-			</div>
+				<figure class="poster-bg column is-2 is-offset-1">
+					<div class="image is-3by5">
+						<img class="mPoster" src="">
+					</div>
+						<div class="columns is-mobile">
+							<div class="column score">
+								<p class="mScore is-size-6-mobile">Movie Score: </p>
+							</div>
+						</div>
+				</figure>
 		</main>
-		<div class="score">
-			<div class="bScore">Book Score:</div>
-			<div class="mScore">Movie Score:</div>
-		</div>
+
 		<footer>
-			<div class="recommends">
+			<div class="recommends has-text-centered is-size-5">
 				The Internet recommends the [book/movie] over the [book/movie].
 			</div>
 		</footer>
