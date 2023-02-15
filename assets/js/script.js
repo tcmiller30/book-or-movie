@@ -27,13 +27,6 @@ function bookAPIs(input) {
 		})
 		.then(function (data) {
 			console.log(data);
-			if(data.docs = []){
-				recommendEl.innerHTML = "There is no book to compare to the movie. Please try again!";
-				ansContainer.innerHTML = "";
-				bScoreEl.innerHTML = "No Result";
-				return
-			}
-			else{
 
 				var bookId = data.docs[0].key;
 
@@ -61,7 +54,6 @@ function bookAPIs(input) {
 						displayBookData(coverId, rating);
 						return rating;
 				});
-			}
 		});
 }
 
