@@ -21,11 +21,11 @@
 		<header class="section columns is-centered">
 			<div class="column is-three-quarters">
 				<h1 class="title is-2">Which Was Better: The Book or the Movie?</h1>
-					<h2 class="subtitle is-4">
-							This website was designed to compare the ratings of a book to its
-							movie counterpart and vice versa. Begin by entering the name of
-							either a book or a movie into the search bar!
-					</h2>
+				<h2 class="subtitle is-4">
+					This website was designed to compare the ratings of a book to its
+					movie counterpart and vice versa. Begin by entering the name of either
+					a book or a movie into the search bar!
+				</h2>
 			</div>
 		</header>
 
@@ -39,26 +39,29 @@
 							type="text"
 							placeholder="e.g. The Lord of the Rings" />
 						<button class="button is-normal">Search</button>
-            <div class = "dropdown is-right">
-              <div class = "dropdown-trigger">
-                 <button class = "button" aria-haspopup = "true" aria-controls = "dropdown-menu4">
-                    <span>Previous Searches</span>
-                    <span class = "icon is-small">
-                       <i class = "fas fa-angle-down" aria-hidden = "true"></i>
-                    </span>
-                 </button>
-              </div>
+						<div class="dropdown is-right">
+							<div class="dropdown-trigger">
+								<button
+									class="button"
+									aria-haspopup="true"
+									aria-controls="dropdown-menu4">
+									<span>Previous Searches</span>
+									<span class="icon is-small">
+										<i class="fas fa-angle-down" aria-hidden="true"></i>
+									</span>
+								</button>
+							</div>
 
-              <div class = "dropdown-menu" id = "dropdown-menu" role = "menu">
-                 <div class= "dropdown-content">
-                    <a id = "dropdown-item"></a>
-                    <a id = "dropdown-item"></a>
-                    <a id = "dropdown-item"></a>
-                    <a id = "dropdown-item"></a>
-                    <a id = "dropdown-item"></a>
-                 </div>
-              </div>
-					</div>
+							<div class="dropdown-menu" id="dropdown-menu" role="menu">
+								<div class="dropdown-content">
+									<a id="dropdown-item"></a>
+									<a id="dropdown-item"></a>
+									<a id="dropdown-item"></a>
+									<a id="dropdown-item"></a>
+									<a id="dropdown-item"></a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -71,38 +74,32 @@
 
 		<!-- Image covers for movies&books  -->
 		<main class="image-cover columns is-mobile is-centered">
-				<figure class="poster-bg column is-2">
-					<div class="image is-3by5">
-						<img class="bPoster" src="" >
+			<figure class="poster-bg column is-2">
+				<div class="image is-3by5">
+					<img class="bPoster" src="" />
+				</div>
+				<div class="columns">
+					<div class="column score">
+						<p class="bScore is size-6-mobile">Book Score:</p>
 					</div>
-						<div class="columns">
-							<div class="column score">
-								<p class="bScore is size-6-mobile">Book Score:</p>
-							</div>
-						</div>
-				</figure>
+				</div>
+			</figure>
 
-			<div class="ans-container 
-				column is-1 
-				is-offset-1
-				is-size-5-mobile
-				has-text-centered
-				is-flex
-				is-justify-content-center
-				is-align-items-center">
-					=
+			<div
+				class="ans-container column is-1 is-offset-1 is-size-5-mobile has-text-centered is-flex is-justify-content-center is-align-items-center">
+				=
 			</div>
 
-				<figure class="poster-bg column is-2 is-offset-1">
-					<div class="image is-3by5">
-						<img class="mPoster" src="">
+			<figure class="poster-bg column is-2 is-offset-1">
+				<div class="image is-3by5">
+					<img class="mPoster" src="" />
+				</div>
+				<div class="columns is-mobile">
+					<div class="column score">
+						<p class="mScore is-size-6-mobile">Movie Score:</p>
 					</div>
-						<div class="columns is-mobile">
-							<div class="column score">
-								<p class="mScore is-size-6-mobile">Movie Score: </p>
-							</div>
-						</div>
-				</figure>
+				</div>
+			</figure>
 		</main>
 
 		<footer>

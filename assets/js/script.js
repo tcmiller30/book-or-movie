@@ -86,6 +86,7 @@ $(".input-box").on("keyup", function (e) {
 		bookAPIs(input);
 		whichIsBetter(input);
 		storeInput(input);
+		displaySearchHistory();
 	}
 });
 
@@ -97,6 +98,7 @@ document.querySelector(".button").addEventListener("click", function () {
 	bookAPIs(input);
 	whichIsBetter(input);
 	storeInput(input);
+	displaySearchHistory();
 });
 
 //fetch movie api
@@ -168,31 +170,31 @@ function getLocalStorage() {
 	return newList;
 }
 function displaySearchHistory() {
-	var searchHistory = localStorage.getItem("titles");
-	var titles = JSON.parse(searchHistory);
-	console.log(titles);
+	$(".dropdown-item").remove();
+
+	var userInputArray = JSON.parse(localStorage.getItem("titles"));
+	var dropdown = document.querySelector(".dropdown-content");
+	console.log(userInputArray);
+
+	// loop through array of objects and display in previous searches
+
+	for (var i = userInputArray.length - 1; i > userInputArray.length - 6; i--) {
+		var previousSearches = document.createElement("a");
+		var current = [i];
+		previousSearches.setAttribute("class", "dropdown-item");
+		dropdown.appendChild(previousSearches);
+		previousSearches.innerHTML = userInputArray[current];
+	}
 }
 displaySearchHistory();
 
 // drop down menu functionality for user's previous searches
-document.addEventListener('DOMContentLoaded', function () {
-	var dropdown = document.querySelector('.dropdown');
-	dropdown.addEventListener('click', function(event) {
-	   event.stopPropagation();
-	   dropdown.classList.toggle('is-active');
-	   /* document.querySelector("dropdown-item").innerHTML = `<a href= "${titles}" </a>` */
+
+document.addEventListener("DOMContentLoaded", function () {
+	var dropdown = document.querySelector(".dropdown");
+	dropdown.addEventListener("click", function (event) {
+		event.stopPropagation();
+		dropdown.classList.toggle("is-active");
+		/* document.querySelector("dropdown-item").innerHTML = `<a href= "${titles}" </a>` */
 	});
- }); 
-
- // retrieve data from local storage 
- var userInputArray = JSON.parse(localStorage.getItem('titles'));
-
- var dropdown = document.getElementById('dropdown-item');
-
- // loop through array of objects and display in previous searches 
- userInputArray.forEach((item) => {
-	var previousSearches = document.createElement('div');
-	previousSearches.value = item.id;
-	previousSearches.innerHTML = item.name;
-	dropdown.appendChild(previousSearches);
- });
+});
