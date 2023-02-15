@@ -10,7 +10,6 @@ var recommendEl = document.querySelector(".recommends");
 var ansContainer = document.querySelector(".ans-container");
 var bPoster = document.querySelector(".bPoster");
 var mPoster = document.querySelector(".mPoster");
-
 // button for light/dark
 var btnTheme = document.querySelector(".btn-theme");
 
@@ -90,13 +89,15 @@ $(".input-box").on("keyup", function (e) {
 });
 
 //eventlistener for search button
-document.querySelector("button").addEventListener("click", function () {
+document.querySelector(".button").addEventListener("click", function () {
 	var input = $(".input-box").val();
 	reset();
 	movieInfo(input);
 	bookAPIs(input);
 	whichIsBetter(input);
 	storeInput(input);
+	displaySearchHistory();
+	getLocalStorage()
 });
 
 //fetch movie api
@@ -172,7 +173,8 @@ function displaySearchHistory() {
 	var titles = JSON.parse(searchHistory);
 	console.log(titles);
 }
-displaySearchHistory();
+
+
 
 // drop down menu functionality for user's previous searches
 document.addEventListener('DOMContentLoaded', function () {
@@ -190,9 +192,12 @@ document.addEventListener('DOMContentLoaded', function () {
  var dropdown = document.getElementById('dropdown-item');
 
  // loop through array of objects and display in previous searches 
- userInputArray.forEach((item) => {
-	var previousSearches = document.createElement('div');
-	previousSearches.value = item.id;
-	previousSearches.innerHTML = item.name;
-	dropdown.appendChild(previousSearches);
- });
+
+	for (var i = userInputArray.length - 1; i > userInputArray.length - 6; i--) {
+		var previousSearches = document.createElement('a');
+		var current = [i];
+		previousSearches.setAttribute("class", "dropdown-item");
+		dropdown.appendChild(previousSearches);
+		previousSearches.innerHTML = userInputArray[current];
+	}
+	
