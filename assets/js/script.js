@@ -110,14 +110,14 @@ document.querySelector(".button").addEventListener("click", function () {
 
 //fetch movie api
 function movieInfo(input) {
-	var movieApiTitle = "http://www.omdbapi.com/?S=" + input + "&apikey=c080d1c9";
+	var movieApiTitle = "https://www.omdbapi.com/?S=" + input + "&apikey=c080d1c9";
 
 	return fetch(movieApiTitle)
 		.then((response) => response.json())
 		.then((data) => {
 			var movieId = data.Search[0].imdbID;
 			var movieApiImdbId =
-				"http://www.omdbapi.com/?i=" + movieId + "&apikey=c080d1c9";
+				"https://www.omdbapi.com/?i=" + movieId + "&apikey=c080d1c9";
 
 			return fetch(movieApiImdbId)
 				.then((response) => response.json())
