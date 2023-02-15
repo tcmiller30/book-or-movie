@@ -27,34 +27,41 @@ function bookAPIs(input) {
 		})
 		.then(function (data) {
 			console.log(data);
-			var bookId = data.docs[0].key;
+			if(data.docs = []){
+				recommendEl.innerHTML = "There is no book to compare to the movie. Please try again!";
+				ansContainer.innerHTML = "";
+				bScoreEl.innerHTML = "No Result";
+				return
+			}
+			else{
 
-			// Once the bookId/key has been obtained by the first API, simultaneously init the fetch requests to the works and ratings API's
-			var worksRequestUrl = "https://openlibrary.org" + bookId + ".json";
-			var ratingsRequestUrl =
-				"https://openlibrary.org" + bookId + "/ratings.json";
+				var bookId = data.docs[0].key;
 
-			return Promise.all([fetch(worksRequestUrl), fetch(ratingsRequestUrl)])
-				.then(function (responses) {
-					// Get a JSON object from each of the responses
-					return Promise.all(
-						responses.map(function (response) {
-							return response.json();
-						})
-					);
-				})
-				.then(function (data) {
-					// console.log data displays 2 json objects. Data[0] = Works API, Data[1] = Ratings API
+				// Once the bookId/key has been obtained by the first API, simultaneously init the fetch requests to the works and ratings API's
+				var worksRequestUrl = "https://openlibrary.org" + bookId + ".json";
+				var ratingsRequestUrl =
+					"https://openlibrary.org" + bookId + "/ratings.json";
 
-					// define variables usiong
-					var bookTitle = data[0].title;
-					var coverId = data[0].covers[0];
-					var rating = Math.round(data[1].summary.average * 2 * 10) / 10;
-
-					//calls displayBookData to pull data values for use
-					displayBookData(coverId, rating);
-					return rating;
+				return Promise.all([fetch(worksRequestUrl), fetch(ratingsRequestUrl)])
+					.then(function (responses) {
+						// Get a JSON object from each of the responses
+						return Promise.all(
+							responses.map(function (response) {
+								return response.json();
+							})
+						);
+					})
+					.then(function (data) {
+						// console.log data displays 2 json objects. Data[0] = Works API, Data[1] = Ratings API
+						console.log(data[0]);
+						// define variables using data
+						var coverId = data[0].covers[0];
+						var rating = Math.round(data[1].summary.average * 2 * 10) / 10;
+						//calls displayBookData to pull data values for use
+						displayBookData(coverId, rating);
+						return rating;
 				});
+			}
 		});
 }
 
@@ -132,19 +139,26 @@ function whichIsBetter(input) {
 	Promise.all([movieInfo(input), bookAPIs(input)]).then((data) => {
 		movieScore = data[0];
 		bookScore = data[1];
-		if (bookScore > movieScore) {
-			recommendEl.innerHTML =
-				"The Internet recommends the book over the movie.";
-			ansContainer.innerHTML = ">";
-		} else if (bookScore < movieScore) {
-			recommendEl.innerHTML =
-				"The Internet recommends the movie over the book.";
-			ansContainer.innerHTML = "<";
-		} else if (bookScore == movieScore) {
-			recommendEl.innerHTML =
-				"The Internet equally recommends the book and the movie.";
-			ansContainer.innerHTML = "=";
-		}
+			// compares book and movie scores
+			if (bookScore > movieScore) {
+				recommendEl.innerHTML =
+					"The Internet recommends the book over the movie.";
+				ansContainer.innerHTML = ">";
+			} else if (bookScore < movieScore) {
+				recommendEl.innerHTML =
+					"The Internet recommends the movie over the book.";
+				ansContainer.innerHTML = "<";
+			} else if (bookScore == movieScore) {
+				recommendEl.innerHTML =
+					"The Internet equally recommends the book and the movie.";
+				ansContainer.innerHTML = "=";
+			} else if(movieScore == null){
+				recommendEl.innerHTML =
+					"There is no movie to compare to the book, try again";
+			} else if(bookScore == null){
+				recommendEl.innerHTML =
+					"There is no book to compare to the movie, try again";
+			}
 		return;
 	});
 }
