@@ -34,7 +34,7 @@ Each recommendation prompted by the User's search will be logged and saved to Lo
 Below is an example photo of how the Book or Movie Website will appear when the user has searched for a title.
 
     ```md
-    ![screenshot of the site](https://user-images.githubusercontent.com/107505824/219543974-a86e274f-9506-4cfa-b7ad-cd0756c62b5f.png)
+    ![alt text](assets/images/screenshot.png)
     ```
 
 ## Credits
@@ -69,6 +69,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Live Link: https://tcmiller30.github.io/book-or-movie
 
-![image](https://user-images.githubusercontent.com/107505824/219543974-a86e274f-9506-4cfa-b7ad-cd0756c62b5f.png)
