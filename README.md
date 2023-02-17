@@ -34,7 +34,7 @@ Each recommendation prompted by the User's search will be logged and saved to Lo
 Below is an example photo of how the Book or Movie Website will appear when the user has searched for a title.
 
     ```md
-    ![alt text](assets/images/screenshot.png)
+    ![screenshot of the site](https://user-images.githubusercontent.com/107505824/219543974-a86e274f-9506-4cfa-b7ad-cd0756c62b5f.png)
     ```
 
 ## Credits
