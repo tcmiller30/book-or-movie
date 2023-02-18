@@ -63,6 +63,10 @@ button {
 	color: var(--white);
 }
 
+
+.subtitle-container {
+	margin: -65px;
+
 .poster-bg {
 	background-color: var(--white);
 	border: 3px solid black;
@@ -93,6 +97,8 @@ button {
 }
 
 .summary {
+	border: 1px solid black;
+	display: flex;
 	margin-top: 10px;
 	margin: 10px;
 	padding: 50px;
@@ -115,10 +121,26 @@ button {
 	border-radius: 10px;
 }
 
-.dark .image-cover {
+.dark .image-cover{
+	border: solid 1px;
 	background-color: var(--darkblue);
 	color: var(--white);
+	display: flex;
+	margin-top: 10px;
+	padding: 25px;
+	margin: 20px;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 97%;
+	padding: 200px;
 }
+.image-cover .columns{
+	display: flex;
+	align-items: center;
+	font-size: 35px;
+
+
 
 .title-search {
 	margin-right: 20px;
@@ -167,6 +189,11 @@ button {
 	border: 5px solid var(--white);
 }
 
+.dark .score {
+	background-color: var(--grey);
+	color: var(--black)
+}
+
 footer {
 	border: solid 1px;
 	background-color: var(--beige);
@@ -181,4 +208,11 @@ footer.dark {
 	border: solid 1px;
 	background-color: var(--purple);
 	color: var(--white);
+
+	padding: 50px;
+	display: flex;
+	margin: 20px;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: center;
 }

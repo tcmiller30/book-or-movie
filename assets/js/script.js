@@ -1,6 +1,7 @@
-var button = document.querySelector(".button");
+var buttonEl = document.querySelector(".button");
 var inputEl = document.querySelector(".input-box");
 var bookCoverEl = document.querySelector(".book-cover");
+var symbolEl = document.querySelector("#symbol");
 var summary = document.querySelector(".summary");
 var bScoreEl = document.querySelector(".bScore");
 var mScoreEl = document.querySelector(".mScore");
@@ -19,6 +20,14 @@ btnTheme.addEventListener("click", function () {
 	document.querySelector("footer").classList.toggle("dark");
 });
 
+// button for light/dark
+var btnTheme = document.querySelector('.btn-theme');
+
+btnTheme.addEventListener("click", function(){
+	document.querySelector('body').classList.toggle('dark')
+	document.querySelector('footer').classList.toggle('dark')
+})
+
 function bookAPIs(input) {
 	var bookSearchUrl = "https://openlibrary.org/search.json?q=" + input;
 	return fetch(bookSearchUrl)
@@ -34,6 +43,11 @@ function bookAPIs(input) {
 				var worksRequestUrl = "https://openlibrary.org" + bookId + ".json";
 				var ratingsRequestUrl =
 					"https://openlibrary.org" + bookId + "/ratings.json";
+
+
+					//calls displayBookData to pull data values for use
+					displayBookData(bookTitle, coverId, rating);
+					 whichIsBetter(rating);
 
 				return Promise.all([fetch(worksRequestUrl), fetch(ratingsRequestUrl)])
 					.then(function (responses) {
@@ -53,6 +67,7 @@ function bookAPIs(input) {
 						//calls displayBookData to pull data values for use
 						displayBookData(coverId, rating);
 						return rating;
+
 				});
 		});
 }
@@ -89,6 +104,8 @@ $(".input-box").on("keyup", function (e) {
 	}
 });
 
+document.querySelector(".buttonEl").addEventListener("click", function () {
+
 //eventlistener for search button
 document.querySelector(".button").addEventListener("click", function () {
 	var input = $(".input-box").val();
@@ -111,6 +128,14 @@ function movieInfo(input) {
 			var movieApiImdbId =
 				"https://www.omdbapi.com/?i=" + movieId + "&apikey=c080d1c9";
 
+			var movieSummary = data?.result[0]?.overview  || "No content found, please try again.";
+			var moviePoster = data?.result[0]?.posterURLs.original;
+			var movieScore = data?.result[0]?.imdbRating / 10;
+			var bookScore = data?.result[0]?.tmdbRating / 10;
+
+			displayMovieData(movieSummary, moviePoster, movieScore);
+			whichIsBetter(bookScore,movieScore);
+
 			return fetch(movieApiImdbId)
 				.then((response) => response.json())
 				.then((data) => {
@@ -124,6 +149,7 @@ function movieInfo(input) {
 					mScoreEl.textContent = "Movie Score: " + movieScore + " / 10";
 					return movieScore;
 				});
+
 		});
 }
 //get data from both api and compare to see which is better
@@ -154,6 +180,26 @@ function whichIsBetter(input) {
 		return;
 	});
 }
+
+function whichIsBetter(rating, movieScore) {
+	var mScore = movieScore;
+	var bookScore = rating;
+	console.log(mScore);
+	console.log(bookScore);
+	if (bookScore > mScore) {
+		symbolEl.className = "";
+		symbolEl.classList.add("fas");
+		symbolEl.classList.add("fa-greater-than");
+		recommendEl.innerHTML = "the internet recommends the book over the movie";
+	} else if (bookScore < mScore) {
+		console.log("less than the===");		
+		symbolEl.className = "";
+		symbolEl.classList.add("fas");
+		symbolEl.classList.add("fa-less-than");
+		recommendEl.innerHTML = "the internet recommends the movie over the book";
+	} else if (bookScore == mScore) {
+		recommendEl.innerHTML =
+			"the internet recommends both the movie and the book";
 
 function storeInput(input) {
 	var searchHistory = getLocalStorage();
